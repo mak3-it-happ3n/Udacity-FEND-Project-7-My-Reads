@@ -172,3 +172,8 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+.book-cover-style {
+  width: 128;
+  height: 192;
+  background-image:"url({book.cover})"
+}

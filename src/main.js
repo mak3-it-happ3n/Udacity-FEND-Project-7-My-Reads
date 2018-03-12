@@ -3,8 +3,31 @@ import React from 'react'
 import './App.css'
 import { Link } from 'react-router-dom'
 // import { Route } from 'react-router-dom'
+import ListBooks from './ListBooks'
 
 class Main extends React.Component {
+  state = {
+    books : [
+      {
+        title: "To Kill a Mockingbird",
+        cover: "http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api",
+        author: "Harper Lee",
+        list: "currentlyReading"
+      },
+      {
+        title: "Ender's Game",
+        cover: "http://books.google.com/books/content?id=uu1mC6zWNTwC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73pGHfBNSsJG9Y8kRBpmLUft9O4BfItHioHolWNKOdLavw-SLcXADy3CPAfJ0_qMb18RmCa7Ds1cTdpM3dxAGJs8zfCfm8c6ggBIjzKT7XR5FIB53HHOhnsT7a0Cc-PpneWq9zX&source=gbs_api",
+        author: "Orson Scott Card",
+        list: "currentlyReading"
+      }
+    ]
+  }
+  removeBook = (book) => {
+    this.setState((state) => ({
+      books: state.books.filter((b) => b.id !== book.id)
+      }))
+    }
+
   render () {
     return (
     <div className="main">
@@ -18,6 +41,9 @@ class Main extends React.Component {
              <h2 className="bookshelf-title">Currently Reading</h2>
              <div className="bookshelf-books">
                <ol className="books-grid">
+
+                  <ListBooks moveOut={this.removeBook} books={this.state.books}/>
+/*
                  <li>
                    <div className="book">
                      <div className="book-top">
@@ -32,6 +58,8 @@ class Main extends React.Component {
                          </select>
                        </div>
                      </div>
+
+                     //*************FIRST BOOK *************
                      <div className="book-title">To Kill a Mockingbird</div>
                      <div className="book-authors">Harper Lee</div>
                    </div>
@@ -50,6 +78,8 @@ class Main extends React.Component {
                          </select>
                        </div>
                      </div>
+
+                     // ***********2ND BOOK ******************
                      <div className="book-title">Ender's Game</div>
                      <div className="book-authors">Orson Scott Card</div>
                    </div>
@@ -75,6 +105,7 @@ class Main extends React.Component {
                          </select>
                        </div>
                      </div>
+          */
                      <div className="book-title">1776</div>
                      <div className="book-authors">David McCullough</div>
                    </div>
