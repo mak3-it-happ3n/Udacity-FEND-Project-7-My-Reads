@@ -1,6 +1,8 @@
 import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
+import { Link } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
@@ -16,9 +18,10 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
+        {this.state.showSearchPage ? (	// own: this should be replaced with URL route
           <div className="search-books">
             <div className="search-books-bar">
+
               <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
               <div className="search-books-input-wrapper">
                 {/*
@@ -193,8 +196,9 @@ class BooksApp extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+            <div className="open-search"> //own: update URL on next line:
+          	  <Link to="/search">Add a book</Link>
+              //<a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
             </div>
           </div>
         )}
