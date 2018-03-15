@@ -2,7 +2,7 @@ import React from 'react'
 
 function ListBooks (props) {
     return (
-      <div>
+      <ol className="books-grid">
       {props.books.map((book) => (
         <li key={book.title}>
           <div className="book">
@@ -25,7 +25,7 @@ function ListBooks (props) {
 
 
       ))}
-      </div>
+      </ol>
     )
 }
 
